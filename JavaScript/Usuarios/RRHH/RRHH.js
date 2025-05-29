@@ -10,7 +10,7 @@ export function menuRecursosHumanos() {
 
     while(flag){
 
-        let opcion = prompt("Seleccione una opción:\n1. Agregar nuevo usuario\n2. Ver lista de usuarios\n3. Modificar usuario\n4. Eliminar usuario\n5. Agregar nuevo empleado\n6. Ver lista de empleados\n7. Modificar empleado\n8. Eliminar empleado\n9. Salir");
+        let opcion = prompt("Seleccione una opción:\n1. Agregar nuevo usuario\n2. Ver lista de usuarios\n3. Modificar usuario\n4. Eliminar usuario\n5. Agregar nuevo empleado\n6. Ver lista de empleados\n7. Modificar informaacion empleado\n8. Eliminar empleado\n9. Modificar salario empleado\n10. Salir del menú de Recursos Humanos");
         
 
         if (opcion === null) {
@@ -40,12 +40,15 @@ export function menuRecursosHumanos() {
                 FuncionesEmpleados.verListaEmpleados();
                 break;
             case 7:
-                FuncionesEmpleados.modificarEmpleado();
+                FuncionesEmpleados.modificarListaEmpleados();
                 break;
             case 8:
                 FuncionesEmpleados.eliminarEmpleado();
                 break;
             case 9:
+                FuncionesEmpleados.modificarSalarioEmpleado();
+                break;
+            case 10:
                 flag = false;
                 alert("Saliendo del menú de Recursos Humanos.");
                 break;

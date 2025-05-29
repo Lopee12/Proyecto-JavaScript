@@ -164,6 +164,11 @@ export function modificarListaProductos(){
 
     verListaProductos();
 
+    if (productos.length === 0) {
+        alert("No hay productos en la lista.");
+        return;
+    }
+
     let idProducto = null;
 
     idProducto = Validaciones.pedirDatoEntero("Ingrese el ID del producto que desea modificar", Validaciones.validacionGeneralEntero);
@@ -237,6 +242,12 @@ export function modificarListaProductos(){
 export function eliminarProducto() {
 
     verListaProductos();
+
+    if (productos.length === 0) {
+        alert("No hay productos en la lista.");
+        return;
+    }
+
     let idProducto = null;
 
     idProducto = Validaciones.pedirDatoEntero("Ingrese el ID del producto que desea modificar", Validaciones.validacionGeneralEntero);
@@ -260,6 +271,11 @@ export function eliminarProducto() {
 
 export function modificarPrecioProducto() {
     verListaProductos();
+
+    if (productos.length === 0) {
+        alert("No hay productos en la lista.");
+        return;
+    }
 
     let idProducto = null;
 
@@ -298,6 +314,11 @@ export function modificarPrecioProducto() {
 export function modificarStockProducto() {
 
     verListaProductos();
+
+    if (productos.length === 0) {
+        alert("No hay productos en la lista.");
+        return;
+    }
 
     let idProducto = null;
 

@@ -1,3 +1,5 @@
+import * as Validaciones from "../../../Validaciones/Validaciones.js";
+
 /*Arreglo de empleados con sus datos*/
 
 export const empleados = [
@@ -45,10 +47,57 @@ export const empleados = [
 /*Funcion para agregar un nuevo empleado a la lista*/
 
 export function agregarNuevoEmpleado() {
-    let nombre = prompt("Ingrese el nombre del empleado");
-    let apellido = prompt("Ingrese el apellido del empleado");
-    let documento = prompt("Ingrese el documento del empleado");
-    let salario = parseFloat(prompt("Ingrese el salario del empleado"));
+
+    let nombre, apellido, documento, salario = null;
+
+    // Validar que los datos ingresados sean correctos
+
+    while(true){
+        nombre = Validaciones.pedirDatoString("Ingrese el nombre del empleado",Validaciones.validacionGeneralString);
+        if(nombre == null){
+            return;
+        }   
+
+        apellido = Validaciones.pedirDatoString("Ingrese el apellido del empleado",Validaciones.validacionGeneralString);
+        if(apellido == null){
+            return;
+        }
+
+        const existe = empleados.some(empleado => empleado.nombre.toLowerCase() === nombre.toLowerCase() && empleado.apellido.toLowerCase() === apellido.toLowerCase());
+        if(existe){
+            alert("El empleado ya existe en la lista. Por favor, ingrese un empleado diferente.");
+            continue;
+        }
+    
+        break;
+
+    }
+
+    // Validar el documento del empleado
+
+    while(true){
+        documento = Validaciones.pedirDatoEntero("Ingrese el documento del empleado", Validaciones.validacionGeneralEntero);
+        if(documento == null){
+            return;
+        }
+
+        const existeDocumento = empleados.some(empleado => empleado.documento === documento);
+        if(existeDocumento){
+            alert("El documento ya está registrado para otro empleado. Por favor, ingrese un documento diferente.");
+            continue;
+        }
+
+        break;
+    }
+
+    // Validar el salario del empleado
+
+    salario = Validaciones.pedirDatoFlotante("Ingrese el salario del empleado", Validaciones.validacionGeneralFlotante);
+    if(salario == null) {
+        return;
+    }
+
+    salario = parseFloat(salario);
 
     const nuevoEmpleado = {
         id: empleados.length + 1, // Asignar un ID único basado en la longitud del arreglo
@@ -76,8 +125,8 @@ export function verListaEmpleados() {
 
     empleados.forEach(empleado => {
         if (empleado.estado === true) {
-            lista += `Nombre: ${empleado.nombre} ${empleado.apellido} \nDocumento: ${empleado.documento} \nSalario: $${empleado.salario.toFixed(2)}\n\n`;
-            console.log(`Nombre: ${empleado.nombre} ${empleado.apellido} \nDocumento: ${empleado.documento} \nSalario: $${empleado.salario.toFixed(2)}\n\n`);
+            lista += `Id: ${producto.id} \nNombre: ${empleado.nombre} ${empleado.apellido} \nDocumento: ${empleado.documento} \nSalario: $${empleado.salario.toFixed(2)}\n\n`;
+            console.log(`Id: ${producto.id} \nNombre: ${empleado.nombre} ${empleado.apellido} \nDocumento: ${empleado.documento} \nSalario: $${empleado.salario.toFixed(2)}\n\n`);
         }
     });
 
@@ -89,7 +138,18 @@ export function verListaEmpleados() {
 
 export function modificarListaEmpleados() {
     verListaEmpleados();
-    let idEmpleado = prompt("Ingrese el ID del empleado que desea modificar");
+
+    if (empleados.length === 0) {
+        alert("No hay empleados en la lista para modificar.");
+        return;
+    }
+
+    let idEmpleado = null;
+    idEmpleado = Validaciones.pedirDatoEntero("Ingrese el ID del empleado que desea modificar", Validaciones.validacionGeneralEntero);
+    if (idEmpleado === null) {
+        return;
+    }
+
     idEmpleado = parseInt(idEmpleado);
 
     const empleado = empleados.find(emp => emp.id === idEmpleado);
@@ -99,11 +159,46 @@ export function modificarListaEmpleados() {
         return;
     }
 
-    let nuevoNombre = prompt("Ingrese el nuevo nombre del empleado", empleado.nombre);
-    let nuevoApellido = prompt("Ingrese el nuevo apellido del empleado", empleado.apellido);
-    let nuevoDocumento = prompt("Ingrese el nuevo documento del empleado", empleado.documento);
+    let nuevoNombre, nuevoApellido, nuevoDocumento = null;
 
-    
+    // Validar que los datos ingresados sean correctos
+
+    while (true) {
+        nuevoNombre = Validaciones.pedirDatoString("Ingrese el nuevo nombre del empleado", Validaciones.validacionGeneralString);
+        if (nuevoNombre == null) {
+            return;
+        }
+
+        nuevoApellido = Validaciones.pedirDatoString("Ingrese el nuevo apellido del empleado", Validaciones.validacionGeneralString);
+        if (nuevoApellido == null) {
+            return;
+        }
+
+        const existe = empleados.some(emp => emp.id !== empleado.id && emp.nombre.toLowerCase() === nuevoNombre.toLowerCase() && emp.apellido.toLowerCase() === nuevoApellido.toLowerCase());
+        if (existe) {
+            alert("El empleado ya existe en la lista. Por favor, ingrese un empleado diferente.");
+            continue;
+        }
+        break;
+    }
+
+    // Validar el documento del empleado
+
+    while (true) {
+        nuevoDocumento = Validaciones.pedirDatoEntero("Ingrese el nuevo documento del empleado", Validaciones.validacionGeneralEntero);
+        if (nuevoDocumento == null) {
+            return;
+        }
+
+        const existeDocumento = empleados.some(emp => emp.id !== empleado.id && emp.documento === nuevoDocumento);
+        if (existeDocumento) {
+            alert("El documento ya está registrado para otro empleado. Por favor, ingrese un documento diferente.");
+            continue;
+        }
+
+        break;
+
+    }
 
     empleado.nombre = nuevoNombre || empleado.nombre;
     empleado.apellido = nuevoApellido || empleado.apellido;
@@ -116,7 +211,18 @@ export function modificarListaEmpleados() {
 
 export function eliminarEmpleado() {
     verListaEmpleados();
-    let idEmpleado = prompt("Ingrese el ID del empleado que desea eliminar");
+
+    if (empleados.length === 0) {
+        alert("No hay empleados en la lista para modificar.");
+        return;
+    }
+
+    let idEmpleado = null;
+    idEmpleado = Validaciones.pedirDatoEntero("Ingrese el ID del empleado que desea modificar", Validaciones.validacionGeneralEntero);
+    if (idEmpleado === null) {
+        return;
+    }
+
     idEmpleado = parseInt(idEmpleado);
 
     const empleado = empleados.find(emp => emp.id === idEmpleado);
@@ -134,7 +240,18 @@ export function eliminarEmpleado() {
 
 export function modificarSalarioEmpleado() {
     verListaEmpleados();
-    let idEmpleado = prompt("Ingrese el ID del empleado cuyo salario desea modificar");
+
+    if (empleados.length === 0) {
+        alert("No hay empleados en la lista para modificar.");
+        return;
+    }
+
+    let idEmpleado = null;
+    idEmpleado = Validaciones.pedirDatoEntero("Ingrese el ID del empleado que desea modificar", Validaciones.validacionGeneralEntero);
+    if (idEmpleado === null) {
+        return;
+    }
+
     idEmpleado = parseInt(idEmpleado);
 
     const empleado = empleados.find(emp => emp.id === idEmpleado);
@@ -144,12 +261,16 @@ export function modificarSalarioEmpleado() {
         return;
     }
 
-    let nuevoSalario = parseFloat(prompt("Ingrese el nuevo salario del empleado", empleado.salario));
+    // Validar el nuevo salario del empleado
 
-    if (isNaN(nuevoSalario) || nuevoSalario <= 0) {
-        alert("Salario inválido");
+    let nuevoSalario = null; 
+    
+    nuevoSalario = Validaciones.pedirDatoFlotante("Ingrese el nuevo salario del empleado", Validaciones.validacionGeneralFlotante);
+    if (nuevoSalario === null) {
         return;
     }
+
+    nuevoSalario = parseFloat(nuevoSalario);
 
     empleado.salario = nuevoSalario;
     alert("Salario modificado correctamente");
