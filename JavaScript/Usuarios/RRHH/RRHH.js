@@ -12,6 +12,7 @@ export function menuRecursosHumanos() {
 
         let opcion = prompt("Seleccione una opción:\n1. Agregar nuevo usuario\n2. Ver lista de usuarios\n3. Modificar usuario\n4. Eliminar usuario\n5. Agregar nuevo empleado\n6. Ver lista de empleados\n7. Modificar informaacion empleado\n8. Eliminar empleado\n9. Modificar salario empleado\n10. Salir del menú de Recursos Humanos");
         
+        // Si el usuario presiona Cancelar, opcion será null
 
         if (opcion === null) {
             alert("Saliendo del programa...");
