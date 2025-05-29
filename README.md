@@ -1,0 +1,1 @@
+En este proyecto de JavaScript en un principio la idea es armar un sistema de gestion administrativa que se divida en distintos usuarios los cuales cumplen con diferentes posibilidades de funciones. La informacion para poder ingresar tanto al usuario administrador como de recursos humanos se encuentra en el arreglo del codigo de cada archivo
