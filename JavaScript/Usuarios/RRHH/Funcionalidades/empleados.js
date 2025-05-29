@@ -130,6 +130,7 @@ export function verListaEmpleados() {
         }
     });
 
+
     alert(lista);
     alert("Lista de empleados completa mostrada en la consola para ver detalles completos.");
 }
@@ -275,4 +276,5 @@ export function modificarSalarioEmpleado() {
     empleado.salario = nuevoSalario;
     alert("Salario modificado correctamente");
 }
+
 
