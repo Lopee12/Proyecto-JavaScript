@@ -1,354 +1,354 @@
-import * as Validaciones from "../../../Validaciones/Validaciones.js";
+// import * as Validaciones from "../../../Validaciones/Validaciones.js";
 
-//Arreglo de objetos que representa una lista de productos en una tienda de ropa, a modo de ejemplo para tener datos cargados previamente
+// //Arreglo de objetos que representa una lista de productos en una tienda de ropa, a modo de ejemplo para tener datos cargados previamente
 
-export const productos = [
-    {
-      id: 1,
-      nombre: "Camisa Oxford",
-      categoria: "Camisas",
-      precio: 25.99,
-      stock: 15,
-      descripcion: "Camisa de algodón con botones, ideal para eventos casuales o formales.",
-      estado: true
-    },
-    {
-      id: 2,
-      nombre: "Pantalón Chino",
-      categoria: "Pantalones",
-      precio: 39.50,
-      stock: 20,
-      descripcion: "Pantalón de corte recto con tela suave y resistente, estilo versátil.",
-      estado: true
-    },
-    {
-      id: 3,
-      nombre: "Zapatillas Urbanas",
-      categoria: "Calzado",
-      precio: 59.90,
-      stock: 10,
-      descripcion: "Zapatillas cómodas y modernas para uso diario.",
-      estado: true
-    },
-    {
-      id: 4,
-      nombre: "Campera de Jean",
-      categoria: "Abrigos",
-      precio: 74.25,
-      stock: 8,
-      descripcion: "Campera clásica de mezclilla, resistente al desgaste.",
-      estado: true    
-    },
-    {
-      id: 5,
-      nombre: "Remera Estampada",
-      categoria: "Remeras",
-      precio: 19.99,
-      stock: 30,
-      descripcion: "Remera de algodón con estampado gráfico juvenil.",
-      estado: true
-    }
-  ];
+// export const productos = [
+//     {
+//       id: 1,
+//       nombre: "Camisa Oxford",
+//       categoria: "Camisas",
+//       precio: 25.99,
+//       stock: 15,
+//       descripcion: "Camisa de algodón con botones, ideal para eventos casuales o formales.",
+//       estado: true
+//     },
+//     {
+//       id: 2,
+//       nombre: "Pantalón Chino",
+//       categoria: "Pantalones",
+//       precio: 39.50,
+//       stock: 20,
+//       descripcion: "Pantalón de corte recto con tela suave y resistente, estilo versátil.",
+//       estado: true
+//     },
+//     {
+//       id: 3,
+//       nombre: "Zapatillas Urbanas",
+//       categoria: "Calzado",
+//       precio: 59.90,
+//       stock: 10,
+//       descripcion: "Zapatillas cómodas y modernas para uso diario.",
+//       estado: true
+//     },
+//     {
+//       id: 4,
+//       nombre: "Campera de Jean",
+//       categoria: "Abrigos",
+//       precio: 74.25,
+//       stock: 8,
+//       descripcion: "Campera clásica de mezclilla, resistente al desgaste.",
+//       estado: true    
+//     },
+//     {
+//       id: 5,
+//       nombre: "Remera Estampada",
+//       categoria: "Remeras",
+//       precio: 19.99,
+//       stock: 30,
+//       descripcion: "Remera de algodón con estampado gráfico juvenil.",
+//       estado: true
+//     }
+//   ];
 
 
-/*Funcion para agregar un nuevo producto a la lista*/
+// /*Funcion para agregar un nuevo producto a la lista*/
 
-export function agregarNuevoProducto(){
+// export function agregarNuevoProducto(){
 
-    let nombre,categoria,precio,stock,descripcion = null;
+//     let nombre,categoria,precio,stock,descripcion = null;
 
-    //Validamos el nombre del producto
+//     //Validamos el nombre del producto
 
-    while(true){
+//     while(true){
 
-        nombre = Validaciones.pedirDatoString("Ingrese el nombre del producto", Validaciones.validacionGeneralString);        
-        if(nombre === null) {
-            return;
-        }
+//         nombre = Validaciones.pedirDatoString("Ingrese el nombre del producto", Validaciones.validacionGeneralString);        
+//         if(nombre === null) {
+//             return;
+//         }
 
-        // Verificar si el nombre ya existe en la lista de productos
-        const existe = productos.some(producto => producto.nombre.toLowerCase() === nombre.toLowerCase());
-        if (existe) {
-            alert("El producto ya existe en la lista. Por favor, ingrese un nombre diferente.");
-            continue;
-        }    
-        break;
-    } 
+//         // Verificar si el nombre ya existe en la lista de productos
+//         const existe = productos.some(producto => producto.nombre.toLowerCase() === nombre.toLowerCase());
+//         if (existe) {
+//             alert("El producto ya existe en la lista. Por favor, ingrese un nombre diferente.");
+//             continue;
+//         }    
+//         break;
+//     } 
 
-    //Validamos la categoria del producto
+//     //Validamos la categoria del producto
 
-    categoria = Validaciones.pedirDatoString("Ingrese la categoria del producto", Validaciones.validacionGeneralString);
-    if(categoria === null) {
-        return;
-    }
+//     categoria = Validaciones.pedirDatoString("Ingrese la categoria del producto", Validaciones.validacionGeneralString);
+//     if(categoria === null) {
+//         return;
+//     }
 
-    // Validamos el precio del producto
+//     // Validamos el precio del producto
 
-    precio = Validaciones.pedirDatoFlotante("Ingrese el precio del producto", Validaciones.validacionGeneralFlotante);
-    if(precio === null) {
-        return;
-    }  
+//     precio = Validaciones.pedirDatoFlotante("Ingrese el precio del producto", Validaciones.validacionGeneralFlotante);
+//     if(precio === null) {
+//         return;
+//     }  
 
-    precio = parseFloat(precio);
+//     precio = parseFloat(precio);
 
-    // Validamos el stock del producto
+//     // Validamos el stock del producto
 
-    stock = Validaciones.pedirDatoEntero("Ingrese el stock del producto", Validaciones.validacionGeneralEntero);
-    if(stock === null) {
-        return;
-    }
+//     stock = Validaciones.pedirDatoEntero("Ingrese el stock del producto", Validaciones.validacionGeneralEntero);
+//     if(stock === null) {
+//         return;
+//     }
 
-    stock = parseInt(stock);
+//     stock = parseInt(stock);
 
-    // Validamos la descripcion del producto
+//     // Validamos la descripcion del producto
 
-    while(true) {
-        descripcion = Validaciones.pedirDatoString("Ingrese una descripcion del producto", Validaciones.validacionGeneralString);
+//     while(true) {
+//         descripcion = Validaciones.pedirDatoString("Ingrese una descripcion del producto", Validaciones.validacionGeneralString);
 
-        if (descripcion === null) {
-            return;
-        }
+//         if (descripcion === null) {
+//             return;
+//         }
 
-        // Verificamos que la descripción no sea demasiado larga
+//         // Verificamos que la descripción no sea demasiado larga
 
-        if (descripcion.length > 200) {
-            alert("La descripción es demasiado larga. Por favor, ingrese una descripción más corta (máximo 200 caracteres).");
-            continue;
-        }
+//         if (descripcion.length > 200) {
+//             alert("La descripción es demasiado larga. Por favor, ingrese una descripción más corta (máximo 200 caracteres).");
+//             continue;
+//         }
 
-        break;
-    }
+//         break;
+//     }
 
-    // Creamos el nuevo producto y lo agregamos a la lista
+//     // Creamos el nuevo producto y lo agregamos a la lista
 
-    const nuevoProducto = {
-        id: productos.length + 1, 
-        nombre: nombre,
-        categoria: categoria,
-        precio: precio,
-        stock: stock,
-        descripcion: descripcion,
-        estado: true
-    }
+//     const nuevoProducto = {
+//         id: productos.length + 1, 
+//         nombre: nombre,
+//         categoria: categoria,
+//         precio: precio,
+//         stock: stock,
+//         descripcion: descripcion,
+//         estado: true
+//     }
 
-    productos.push(nuevoProducto);
-    alert("Producto agregado correctamente");
-}
+//     productos.push(nuevoProducto);
+//     alert("Producto agregado correctamente");
+// }
 
-/*Funcion para ver la lista de productos*/
+// /*Funcion para ver la lista de productos*/
 
-export function verListaProductos() {
-    if (productos.length === 0) {
-        alert("No hay productos en la lista.");
-        return;
-    }
+// export function verListaProductos() {
+//     if (productos.length === 0) {
+//         alert("No hay productos en la lista.");
+//         return;
+//     }
 
     
-    let lista = "Lista de productos:\n\n";
-    console.log("Lista de productos:\n\n"); //Debido a la longitud de la lista, si se quiere ver completa se muestra por consola.
+//     let lista = "Lista de productos:\n\n";
+//     console.log("Lista de productos:\n\n"); //Debido a la longitud de la lista, si se quiere ver completa se muestra por consola.
 
-    productos.forEach(producto => {
-        if(producto.estado === true){
-        lista += `Id: ${producto.id} \nNombre: ${producto.nombre} \nCategoria: ${producto.categoria} \nPrecio: $${producto.precio.toFixed(2)} \nStock: ${producto.stock} \nDescripción: ${producto.descripcion}\n\n`;
-        console.log(`Id: ${producto.id} \nNombre: ${producto.nombre} \nCategoria: ${producto.categoria} \nPrecio: $${producto.precio.toFixed(2)} \nStock: ${producto.stock} \nDescripción: ${producto.descripcion}\n\n`);
-        }
-    });
+//     productos.forEach(producto => {
+//         if(producto.estado === true){
+//         lista += `Id: ${producto.id} \nNombre: ${producto.nombre} \nCategoria: ${producto.categoria} \nPrecio: $${producto.precio.toFixed(2)} \nStock: ${producto.stock} \nDescripción: ${producto.descripcion}\n\n`;
+//         console.log(`Id: ${producto.id} \nNombre: ${producto.nombre} \nCategoria: ${producto.categoria} \nPrecio: $${producto.precio.toFixed(2)} \nStock: ${producto.stock} \nDescripción: ${producto.descripcion}\n\n`);
+//         }
+//     });
 
-    alert(lista);
-    alert("Lista de productos completa mostrada en la consola para ver detalles completos.");
-}
+//     alert(lista);
+//     alert("Lista de productos completa mostrada en la consola para ver detalles completos.");
+// }
 
-/*Funcion para modificar informacion de un producto de la lista*/
+// /*Funcion para modificar informacion de un producto de la lista*/
 
-export function modificarListaProductos(){
+// export function modificarListaProductos(){
 
-    verListaProductos();
+//     verListaProductos();
 
-    if (productos.length === 0) {
-        alert("No hay productos en la lista.");
-        return;
-    }
+//     if (productos.length === 0) {
+//         alert("No hay productos en la lista.");
+//         return;
+//     }
 
-    let idProducto = null;
+//     let idProducto = null;
 
-    idProducto = Validaciones.pedirDatoEntero("Ingrese el ID del producto que desea modificar", Validaciones.validacionGeneralEntero);
-    if (idProducto === null) {
-        return;
-    }
+//     idProducto = Validaciones.pedirDatoEntero("Ingrese el ID del producto que desea modificar", Validaciones.validacionGeneralEntero);
+//     if (idProducto === null) {
+//         return;
+//     }
 
-    idProducto = parseInt(idProducto); // Aseguramos que el ID sea un número entero
+//     idProducto = parseInt(idProducto); // Aseguramos que el ID sea un número entero
 
-    const producto = productos.find(p => p.id === idProducto);
-    if (!producto) {
-        alert("Producto no encontrado.");
-        return;
-    } 
+//     const producto = productos.find(p => p.id === idProducto);
+//     if (!producto) {
+//         alert("Producto no encontrado.");
+//         return;
+//     } 
         
-    let nuevoNombre, nuevaCategoria, nuevaDescripcion = null;
+//     let nuevoNombre, nuevaCategoria, nuevaDescripcion = null;
 
-    while(true){
+//     while(true){
 
-        nuevoNombre = Validaciones.pedirDatoString(`Ingrese un nuevo nombre del producto (actual: ${producto.nombre})`, Validaciones.validacionGeneralString);        
-        if(nuevoNombre === null) {
-            return;
-        }
+//         nuevoNombre = Validaciones.pedirDatoString(`Ingrese un nuevo nombre del producto (actual: ${producto.nombre})`, Validaciones.validacionGeneralString);        
+//         if(nuevoNombre === null) {
+//             return;
+//         }
 
-        // Verificar si el nombre ya existe en la lista de productos
-        const existe = productos.some(producto => producto.nombre.toLowerCase() === nuevoNombre.toLowerCase());
-        if (existe) {
-            alert("El producto ya existe en la lista. Por favor, ingrese un nombre diferente.");
-            continue;
-        }    
-        break;
-    } 
+//         // Verificar si el nombre ya existe en la lista de productos
+//         const existe = productos.some(producto => producto.nombre.toLowerCase() === nuevoNombre.toLowerCase());
+//         if (existe) {
+//             alert("El producto ya existe en la lista. Por favor, ingrese un nombre diferente.");
+//             continue;
+//         }    
+//         break;
+//     } 
 
-    //Validamos la categoria del producto
+//     //Validamos la categoria del producto
 
-    nuevaCategoria = Validaciones.pedirDatoString(`Ingrese una nueva categoria del producto (actual: ${producto.categoria})`, Validaciones.validacionGeneralString);
-    if(nuevaCategoria === null) {
-        return;
-    }
+//     nuevaCategoria = Validaciones.pedirDatoString(`Ingrese una nueva categoria del producto (actual: ${producto.categoria})`, Validaciones.validacionGeneralString);
+//     if(nuevaCategoria === null) {
+//         return;
+//     }
     
-    // Validamos la descripcion del producto
+//     // Validamos la descripcion del producto
 
-    while(true) {
-        nuevaDescripcion = Validaciones.pedirDatoString(`Ingrese una nueva descripcion del producto (actual: ${producto.descripcion})`, Validaciones.validacionGeneralString);
+//     while(true) {
+//         nuevaDescripcion = Validaciones.pedirDatoString(`Ingrese una nueva descripcion del producto (actual: ${producto.descripcion})`, Validaciones.validacionGeneralString);
 
-        if (nuevaDescripcion === null) {
-            return;
-        }
+//         if (nuevaDescripcion === null) {
+//             return;
+//         }
 
-        // Verificamos que la descripción no sea demasiado larga
+//         // Verificamos que la descripción no sea demasiado larga
 
-        if (nuevaDescripcion.length > 200) {
-            alert("La descripción es demasiado larga. Por favor, ingrese una descripción más corta (máximo 200 caracteres).");
-            continue;
-        }
+//         if (nuevaDescripcion.length > 200) {
+//             alert("La descripción es demasiado larga. Por favor, ingrese una descripción más corta (máximo 200 caracteres).");
+//             continue;
+//         }
 
-        break;
-    }
+//         break;
+//     }
     
-    // Actualizar los campos del producto
-    producto.nombre = nuevoNombre || producto.nombre;
-    producto.categoria = nuevaCategoria || producto.categoria;
-    producto.descripcion = nuevaDescripcion || producto.descripcion;
+//     // Actualizar los campos del producto
+//     producto.nombre = nuevoNombre || producto.nombre;
+//     producto.categoria = nuevaCategoria || producto.categoria;
+//     producto.descripcion = nuevaDescripcion || producto.descripcion;
 
-    alert("Producto modificado correctamente");
+//     alert("Producto modificado correctamente");
     
-}
+// }
 
-/* Funcion para eliminar un producto de la lista */
+// /* Funcion para eliminar un producto de la lista */
 
-export function eliminarProducto() {
+// export function eliminarProducto() {
 
-    verListaProductos();
+//     verListaProductos();
 
-    if (productos.length === 0) {
-        alert("No hay productos en la lista.");
-        return;
-    }
+//     if (productos.length === 0) {
+//         alert("No hay productos en la lista.");
+//         return;
+//     }
 
-    let idProducto = null;
+//     let idProducto = null;
 
-    idProducto = Validaciones.pedirDatoEntero("Ingrese el ID del producto que desea modificar", Validaciones.validacionGeneralEntero);
-    if (idProducto === null) {
-        return;
-    }
+//     idProducto = Validaciones.pedirDatoEntero("Ingrese el ID del producto que desea modificar", Validaciones.validacionGeneralEntero);
+//     if (idProducto === null) {
+//         return;
+//     }
 
-    idProducto = parseInt(idProducto); // Aseguramos que el ID sea un número entero
+//     idProducto = parseInt(idProducto); // Aseguramos que el ID sea un número entero
 
-    const index = productos.findIndex(p => p.id === idProducto);
-    if (index === -1) {
-        alert("Producto no encontrado.");
-        return;
-    }
+//     const index = productos.findIndex(p => p.id === idProducto);
+//     if (index === -1) {
+//         alert("Producto no encontrado.");
+//         return;
+//     }
 
-    productos[index].estado = false; // Cambiamos el estado a false en lugar de eliminarlo esto se hace para generar una baja logica y no perder el registro de los datos 
-    alert("Producto eliminado correctamente");
-}
+//     productos[index].estado = false; // Cambiamos el estado a false en lugar de eliminarlo esto se hace para generar una baja logica y no perder el registro de los datos 
+//     alert("Producto eliminado correctamente");
+// }
 
-/* Funcion para modificar el precio de un producto en especifico */
+// /* Funcion para modificar el precio de un producto en especifico */
 
-export function modificarPrecioProducto() {
-    verListaProductos();
+// export function modificarPrecioProducto() {
+//     verListaProductos();
 
-    if (productos.length === 0) {
-        alert("No hay productos en la lista.");
-        return;
-    }
+//     if (productos.length === 0) {
+//         alert("No hay productos en la lista.");
+//         return;
+//     }
 
-    let idProducto = null;
+//     let idProducto = null;
 
-    idProducto = Validaciones.pedirDatoEntero("Ingrese el ID del producto que desea modificar", Validaciones.validacionGeneralEntero);
-    if (idProducto === null) {
-        return;
-    }
+//     idProducto = Validaciones.pedirDatoEntero("Ingrese el ID del producto que desea modificar", Validaciones.validacionGeneralEntero);
+//     if (idProducto === null) {
+//         return;
+//     }
 
-    idProducto = parseInt(idProducto); // Aseguramos que el ID sea un número entero
+//     idProducto = parseInt(idProducto); // Aseguramos que el ID sea un número entero
 
-    const producto = productos.find(p => p.id === idProducto);
-    if (!producto) {
-        alert("Producto no encontrado.");
-        return;
-    } 
+//     const producto = productos.find(p => p.id === idProducto);
+//     if (!producto) {
+//         alert("Producto no encontrado.");
+//         return;
+//     } 
 
-    // Validamos el nuevo precio del producto
+//     // Validamos el nuevo precio del producto
 
-    let nuevoPrecio = null;
+//     let nuevoPrecio = null;
 
-    nuevoPrecio = Validaciones.pedirDatoFlotante(`Ingrese el nuevo precio del producto (actual: $${producto.precio.toFixed(2)})`, Validaciones.validacionGeneralFlotante);
-    if(nuevoPrecio === null) {
-        return;
-    }
+//     nuevoPrecio = Validaciones.pedirDatoFlotante(`Ingrese el nuevo precio del producto (actual: $${producto.precio.toFixed(2)})`, Validaciones.validacionGeneralFlotante);
+//     if(nuevoPrecio === null) {
+//         return;
+//     }
 
-    nuevoPrecio = parseFloat(nuevoPrecio);
+//     nuevoPrecio = parseFloat(nuevoPrecio);
 
-    // Actualizar el precio del producto
-    producto.precio = nuevoPrecio || producto.precio;
+//     // Actualizar el precio del producto
+//     producto.precio = nuevoPrecio || producto.precio;
 
-    alert("Precio modificado correctamente");
-}
+//     alert("Precio modificado correctamente");
+// }
 
-/* Funcion para modificar el stock de un producto en especifico */
+// /* Funcion para modificar el stock de un producto en especifico */
 
-export function modificarStockProducto() {
+// export function modificarStockProducto() {
 
-    verListaProductos();
+//     verListaProductos();
 
-    if (productos.length === 0) {
-        alert("No hay productos en la lista.");
-        return;
-    }
+//     if (productos.length === 0) {
+//         alert("No hay productos en la lista.");
+//         return;
+//     }
 
-    let idProducto = null;
+//     let idProducto = null;
 
-    idProducto = Validaciones.pedirDatoEntero("Ingrese el ID del producto que desea modificar", Validaciones.validacionGeneralEntero);
-    if (idProducto === null) {
-        return;
-    }
+//     idProducto = Validaciones.pedirDatoEntero("Ingrese el ID del producto que desea modificar", Validaciones.validacionGeneralEntero);
+//     if (idProducto === null) {
+//         return;
+//     }
 
-    idProducto = parseInt(idProducto); // Aseguramos que el ID sea un número entero
+//     idProducto = parseInt(idProducto); // Aseguramos que el ID sea un número entero
 
-    const producto = productos.find(p => p.id === idProducto);
-    if (!producto) {
-        alert("Producto no encontrado.");
-        return;
-    } 
+//     const producto = productos.find(p => p.id === idProducto);
+//     if (!producto) {
+//         alert("Producto no encontrado.");
+//         return;
+//     } 
 
-    // Validamos el nuevo stock del producto
+//     // Validamos el nuevo stock del producto
 
-    let nuevoStock = null;
-    nuevoStock = Validaciones.pedirDatoEntero(`Ingrese el nuevo stock del producto (actual: ${producto.stock})`, Validaciones.validacionGeneralEntero);
-    if(nuevoStock === null) {
-        return;
-    }
+//     let nuevoStock = null;
+//     nuevoStock = Validaciones.pedirDatoEntero(`Ingrese el nuevo stock del producto (actual: ${producto.stock})`, Validaciones.validacionGeneralEntero);
+//     if(nuevoStock === null) {
+//         return;
+//     }
 
-    nuevoStock = parseInt(nuevoStock);
+//     nuevoStock = parseInt(nuevoStock);
 
-    // Actualizar el stock del producto
-    producto.stock = nuevoStock || producto.stock;
+//     // Actualizar el stock del producto
+//     producto.stock = nuevoStock || producto.stock;
 
-    alert("Stock modificado correctamente");
-}
+//     alert("Stock modificado correctamente");
+// }
 
 

@@ -9,25 +9,25 @@ main();
 
 function main(){
 
-    alert("Bienvenido al sistema de gestion de la tienda");
-    let nombreUsuario = prompt("Ingrese su nombre de usuario");
-    let contrasena = prompt("Ingrese su contraseña");
+    // alert("Bienvenido al sistema de gestion de la tienda");
+    // let nombreUsuario = prompt("Ingrese su nombre de usuario");
+    // let contrasena = prompt("Ingrese su contraseña");
 
-    let usuario = usuarios.find(usuario => usuario.nombreUsuario === nombreUsuario && usuario.contrasena === contrasena);
-    if(usuario){
-        if(usuario.sector === "admin"){
-            alert("Bienvenido administrador");
-            menuAdmin();
-        }else if(usuario.sector === "rrhh"){
-            alert("Bienvenido Recursos Humanos");
-            menuRecursosHumanos();
-        }else{
-            alert("Sector no valido");
-        }
-    }
-    else{
-        alert("Usuario o contraseña incorrectos");
-    }
+    // let usuario = usuarios.find(usuario => usuario.nombreUsuario === nombreUsuario && usuario.contrasena === contrasena);
+    // if(usuario){
+    //     if(usuario.sector === "admin"){
+    //         alert("Bienvenido administrador");
+    //         menuAdmin();
+    //     }else if(usuario.sector === "rrhh"){
+    //         alert("Bienvenido Recursos Humanos");
+    //         menuRecursosHumanos();
+    //     }else{
+    //         alert("Sector no valido");
+    //     }
+    // }
+    // else{
+    //     alert("Usuario o contraseña incorrectos");
+    // }
 
 }
 
