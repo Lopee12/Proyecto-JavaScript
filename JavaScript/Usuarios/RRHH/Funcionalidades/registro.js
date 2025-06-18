@@ -1,3 +1,4 @@
+import { validacionGeneralString } from "../../../Validaciones/Validaciones.js"
 
 const form = document.getElementById("registroForm");
 
