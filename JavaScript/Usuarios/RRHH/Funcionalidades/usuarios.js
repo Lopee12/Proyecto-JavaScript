@@ -38,7 +38,7 @@ export const usuarios = [
     }
 ];
 
-/*Funcion para agregar un nuevo usuario a la lista*/
+// /*Funcion para agregar un nuevo usuario a la lista*/
 
 export function agregarNuevoUsuario() {
 

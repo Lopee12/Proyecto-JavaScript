@@ -1,0 +1,123 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo general */
+.registro-container {
+  position: relative;
+  height: 100vh;
+  background: url("../Html/Imagenes/registro.jpg") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.registro-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+/* Formulario */
+.registro-form-box {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  width: 90%;
+  max-width: 450px;
+  color: #fff;
+}
+
+.registro-form-box h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+/* Inputs */
+.registro-input-group {
+  margin-bottom: 1.2rem;
+}
+
+.registro-input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.registro-input-group input,
+.registro-input-group select{
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.registro-input-group input::placeholder {
+  color: #ccc;
+}
+
+.registro-input-group input:focus,
+.registro-input-group select:focus {
+  outline: 2px solid #6c63ff;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.registro-input-group select option {
+  background-color: #7a7a7a; /* Color del fondo de las opciones desplegadas */
+  color: white;
+}
+
+/* Botón */
+.registro-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #6c63ff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.registro-btn:hover {
+  background-color: #574fcf;
+}
+
+/* Enlace volver */
+.registro-volver {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.registro-volver a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .registro-form-box {
+    padding: 2rem;
+  }
+}

@@ -1,0 +1,165 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  position: relative;
+  background: url("../Html/Imagenes/inicio.jpg") no-repeat center center/cover;
+  justify-content: center;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  filter: blur(4px);
+}
+
+/* Panel izquierdo */
+.left-panel {
+  flex: 2;
+  position: relative;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  padding: 3rem;
+  color: white;
+  overflow: hidden;
+}
+
+.left-panel .content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: left;
+  background-color: rgba(90, 90, 90, 0.08); /* Opcional: mejora la legibilidad */
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.left-panel h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.left-panel p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2;       /* Espaciado entre líneas */
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+}
+
+/* Panel derecho - login */
+.right-panel {
+  flex: 1;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  
+}
+
+.login-box {
+
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.144);
+  margin-top: 3rem;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  width: 90%;
+  max-width: 500px;
+  color: #fff;
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+  color: #ffffff;
+
+}
+
+.input-group input:focus {
+  border-color: #6c63ff;
+  outline: none;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.register-link p {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.register-link a {
+  color: #ff0000;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #5548c8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .left-panel, .right-panel {
+    flex: none;
+    width: 100%;
+    padding: 1.5rem;
+  }
+}

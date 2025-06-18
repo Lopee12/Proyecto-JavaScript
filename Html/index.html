@@ -4,8 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion de stock de inventario y productos</title>
+    <link rel="stylesheet" href="../CSS/styles.css" />
 </head>
-<body>
+<body>        
+    <div class="container">
+
+        <div class="image-overlay"></div>
+
+        <div class="left-panel">
+            <div class="content">
+                <h1>Bienvenido a Nuestro Sistema</h1>
+                <p>Este sistema te permitirá gestionar tus tareas diarias, organizar tus productos y mantener un seguimiento eficiente de tus recursos. Fácil, rápido y seguro.</p>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="login-box">
+                <h2>Iniciar Sesión</h2>
+                <form action="#" method="post">
+                    <div class="input-group">
+                        <label for="username">Usuario</label>
+                        <input type="text" id="username" name="username" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" required />
+                    </div>
+                    <button type="submit">Ingresar</button>
+                    <div class="register-link">
+                        <p>¿No tenés cuenta? <a href="registro.html">Registrate acá</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="../JavaScript/main.js"></script>
 </body>
 </html>
