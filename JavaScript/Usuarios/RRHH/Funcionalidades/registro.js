@@ -1,5 +1,4 @@
 
-
 const form = document.getElementById("registroForm");
 
 form.addEventListener("submit", (e) => {
