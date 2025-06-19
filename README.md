@@ -1,1 +1,5 @@
 En este proyecto de JavaScript en un principio la idea es armar un sistema de gestion administrativa que se divida en distintos usuarios los cuales cumplen con diferentes posibilidades de funciones. La informacion para poder ingresar tanto al usuario administrador como de recursos humanos se encuentra en el arreglo del codigo de cada archivo
+
+En esta etapa del proyecto para la segunda entrega he modelado un inicio de sesion y un registro junto con una unica funcionalidad para ambos usuarios. 
+A medida que vaya avanzando con el proyecto le voy a ir agregando las funcionalidades correspondientes a cada usuario y sus respectivos menus. El codigo comentado es de la entrega numero 1. 
+En este momento lo unico que puede hacer ambos usuarios es ver la lista de usuarios existentes en la bdd (localStorage). 
