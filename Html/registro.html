@@ -16,10 +16,12 @@
                 <div class="registro-input-group">
                     <label for="newUsername">Nombre de usuario</label>
                     <input type="text" id="newUsername" required />
+                    <div class="error-message" id="error-username"></div>
                 </div>
                 <div class="registro-input-group">
                     <label for="newPassword">Contraseña</label>
                     <input type="password" id="newPassword" required />
+                    <div class="error-message" id="error-password"></div>
                 </div>
                 <div class="registro-input-group">
                     <label for="sector">Sector</label>
@@ -28,6 +30,7 @@
                         <option value="rrhh">RRHH</option>
                         <option value="admin">Admin</option>
                     </select>
+                    <div class="error-message" id="error-sector"></div>
                 </div>
                 <button class="registro-btn" type="submit">Registrarse</button>
             </form>

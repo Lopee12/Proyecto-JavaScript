@@ -115,6 +115,15 @@
   font-weight: 500;
 }
 
+/* Estilos de errores */
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  display: none; /* Se muestra solo cuando hay error */
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .registro-form-box {

@@ -5,28 +5,49 @@ const form = document.getElementById("registroForm");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  let tieneErrores = false;
+
   const username = document.getElementById("newUsername").value.trim();
+  const usernameError = validacionGeneralString(username);
+
+  if (usernameError) {
+    document.getElementById("error-username").innerText = usernameError;
+    document.getElementById("error-username").style.display = "block";
+    tieneErrores = true;
+  } else {
+      document.getElementById("error-username").innerText = "";
+      document.getElementById("error-username").style.display = "none";
+  }
+
   const password = document.getElementById("newPassword").value.trim();
+  const passwordError = validacionGeneralString(password);
+
+  if (passwordError) {
+    document.getElementById("error-password").innerText = passwordError;
+    document.getElementById("error-password").style.display = "block";
+    tieneErrores = true;
+  } else {
+      document.getElementById("error-password").innerText = "";
+      document.getElementById("error-password").style.display = "none";
+  }
+
   const sector = document.getElementById("sector").value;
 
-  const validUser = validacionGeneralString(username);
-  const validPass = validacionGeneralString(password);
-
-  if (validUser !== "valido") {
-    alert("Nombre de usuario no válido.");
-    return;
-  }
-
-  if (validPass !== "valido") {
-    alert("Contraseña no válida.");
-    return;
-  }
-
   if (!["rrhh", "admin"].includes(sector)) {
-    alert("Sector no válido.");
-    return;
+    document.getElementById("error-sector").innerText = "Seleccioná un sector válido.";
+    document.getElementById("error-sector").style.display = "block";
+    tieneErrores = true;
+  } else {
+    document.getElementById("error-sector").innerText = "";
+    document.getElementById("error-sector").style.display = "none";
   }
 
+
+  // Si hay errores, no continuar
+  if (tieneErrores) return;
+
+  // Si no hay errores, crear el usuario
+  
   const usuario = {
     id: Date.now(),
     username,

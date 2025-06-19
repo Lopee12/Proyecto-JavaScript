@@ -1,35 +1,30 @@
-import { usuarios } from "./Usuarios/RRHH/Funcionalidades/usuarios.js";
-import { menuRecursosHumanos } from "./Usuarios/RRHH/RRHH.js";
-import { menuAdmin } from "./Usuarios/Administrador/administrador.js";
-// Importamos las funciones de los menus de Recursos Humanos y Administrador
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.querySelector("form");
 
-// Llamada a la funcion principal para iniciar el programa
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-main();
+      const usernameInput = document.getElementById("username");
+      const passwordInput = document.getElementById("password");
 
-function main(){
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
 
-    // alert("Bienvenido al sistema de gestion de la tienda");
-    // let nombreUsuario = prompt("Ingrese su nombre de usuario");
-    // let contrasena = prompt("Ingrese su contraseña");
+      // Buscar usuario en localStorage
+      const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    // let usuario = usuarios.find(usuario => usuario.nombreUsuario === nombreUsuario && usuario.contrasena === contrasena);
-    // if(usuario){
-    //     if(usuario.sector === "admin"){
-    //         alert("Bienvenido administrador");
-    //         menuAdmin();
-    //     }else if(usuario.sector === "rrhh"){
-    //         alert("Bienvenido Recursos Humanos");
-    //         menuRecursosHumanos();
-    //     }else{
-    //         alert("Sector no valido");
-    //     }
-    // }
-    // else{
-    //     alert("Usuario o contraseña incorrectos");
-    // }
+      const usuarioValido = usuarios.find(
+        (u) => u.username === username && u.password === password
+      );
 
-}
-
-
-
+      if (usuarioValido) {
+        sessionStorage.setItem("usuarioLogueado", JSON.stringify(usuarioValido));
+        window.location.href = "dashboard.html"; // redirigir si todo está bien
+      } else {
+        document.getElementById("login-error-global").innerText = "Usuario o contraseña incorrectos.";
+        document.getElementById("login-error-global").style.display = "block";
+      }
+    });
+  }
+});

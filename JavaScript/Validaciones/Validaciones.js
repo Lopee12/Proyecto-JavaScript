@@ -72,18 +72,18 @@ export function pedirDatoEntero(mensaje, validador) {
 
 export function validacionGeneralString (valor){
     if(valor === null){
-        return "cancelado";
+        return "Operacion cancelada";
     }
 
     if(valor.trim() === ""){
-        return "vacio";
+        return "El valor no puede estar vacío";
     }
 
     if (!isNaN(valor)){
-        return "numero";
+        return "El valor debe poseer al menos un caracter no numérico";
     }
 
-    return "valido";
+    return null;
 }
 
 export function validacionGeneralFlotante (valor){
