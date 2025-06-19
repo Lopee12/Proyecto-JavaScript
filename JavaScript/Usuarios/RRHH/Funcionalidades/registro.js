@@ -61,6 +61,23 @@ form.addEventListener("submit", (e) => {
   lista.push(usuario);
   localStorage.setItem("usuarios", JSON.stringify(lista));
 
-  alert("Usuario registrado correctamente");
-  window.location.href = "index.html";
+  mostrarMensajeRegistro("Usuario registrado correctamente");
+
+  // Luego, podés hacer la redirección (con retraso para que alcance a verse el mensaje)
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 3200);
 });
+
+function mostrarMensajeRegistro(mensaje) {
+  const contenedor = document.getElementById("mensaje-registro");
+  if (!contenedor) return;
+
+  contenedor.innerText = mensaje;
+  contenedor.style.display = "block";
+
+  // Ocultar después de 3 segundos
+  setTimeout(() => {
+    contenedor.style.display = "none";
+  }, 3000);
+}
